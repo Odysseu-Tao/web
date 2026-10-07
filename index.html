@@ -4,53 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>校园图书屋 · 首页</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: "Microsoft YaHei", sans-serif; color: #333; background: #f5f1ea; }
-    .site-header { background: #2c3e50; color: #fff; text-align: center; padding: 28px 16px; }
-    .site-header h1 { margin: 0; font-size: 32px; letter-spacing: 4px; }
-    .site-nav { background: #34495e; text-align: center; }
-    .site-nav a { display: inline-block; color: #ecf0f1; text-decoration: none; padding: 12px 28px; }
-    .site-nav a.active { background: #e67e22; }
-    .container { width: 960px; margin: 20px auto; }
-    .search-area { background: #fff; border: 1px solid #e0d8c8; border-radius: 6px; padding: 16px 20px; }
-    .search-area input[type="text"] { padding: 7px 10px; border: 1px solid #ccc; border-radius: 4px; }
-    .search-area select { padding: 7px 10px; border: 1px solid #ccc; border-radius: 4px; }
-    .search-area button { padding: 8px 22px; background: #e67e22; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-    .site-footer { clear: both; background: #2c3e50; color: #bdc3c7; text-align: center; padding: 18px; font-size: 13px; margin-top: 20px; }
-  </style>
+  <!-- 作业要求②：样式抽到外部 style.css，用 link 引入 -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- 页头：站名 / Logo -->
   <header class="site-header">
     <h1>校园图书屋</h1>
     <p class="slogan">在书页里，遇见更大的世界</p>
   </header>
 
+  <!-- 导航 -->
   <nav class="site-nav">
     <a href="index.html" class="active">首页</a>
     <a href="search.html">检索</a>
     <a href="about.html">关于</a>
   </nav>
 
+  <!-- 正文主体：全页唯一一个 main -->
   <main class="container">
+
+    <!-- 检索区：动手① 成果搬过来 -->
     <section class="search-area">
       <form action="/search" method="get">
         <label for="kw">书名关键字</label>
-        <input type="text" id="kw" name="keyword" required placeholder="请输入书名 / 作者关键字">
+        <input type="text" id="kw" name="keyword"
+               required placeholder="请输入书名 / 作者关键字">
+
         <label for="type">图书分类</label>
         <select id="type" name="type">
           <option value="all">全部</option>
           <option value="cs">计算机</option>
           <option value="literature">文学</option>
+          <option value="history">历史</option>
         </select>
+
         <button type="submit">检索</button>
       </form>
     </section>
+
+    <!-- 新书推荐：左主内容 -->
+    <div class="content-wrap">
+
+      <section class="book-section">
+        <h2>新书推荐</h2>
+
+        <div class="book-list">
+          <!-- 6 张书目卡片，每张一个独立 article -->
+          <article class="book-card">
+            <div class="cover cover-1">HTML</div>
+            <h3>HTML5 与 CSS 基础</h3>
+            <p class="author">著 / 王老师</p>
+            <p class="price">¥ 59.00</p>
+          </article>
+
+          <article class="book-card">
+            <div class="cover cover-2">JS</div>
+            <h3>JavaScript 高级程序设计</h3>
+            <p class="author">著 / Nicholas Zakas</p>
+            <p class="price">¥ 72.00</p>
+          </article>
+
+          <article class="book-card">
+            <div class="cover cover-3">Vue</div>
+            <h3>Vue.js 设计与实现</h3>
+            <p class="author">著 / 霍春阳</p>
+            <p class="price">¥ 89.00</p>
+          </article>
+
+          <article class="book-card">
+            <div class="cover cover-4">OS</div>
+            <h3>深入理解计算机系统</h3>
+            <p class="author">著 / Randal Bryant</p>
+            <p class="price">¥ 139.00</p>
+          </article>
+
+          <article class="book-card">
+            <div class="cover cover-5">DS</div>
+            <h3>算法导论</h3>
+            <p class="author">著 / Thomas Cormen</p>
+            <p class="price">¥ 128.00</p>
+          </article>
+
+          <article class="book-card">
+            <div class="cover cover-6">文学</div>
+            <h3>活着</h3>
+            <p class="author">著 / 余华</p>
+            <p class="price">¥ 45.00</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 侧栏：与主线弱相关 -->
+      <aside class="sidebar">
+        <div class="side-box">
+          <h3>分类导航</h3>
+          <ul>
+            <li><a href="#">计算机 / 编程</a></li>
+            <li><a href="#">文学 / 小说</a></li>
+            <li><a href="#">历史 / 传记</a></li>
+            <li><a href="#">科学 / 科普</a></li>
+          </ul>
+        </div>
+
+        <div class="side-box">
+          <h3>本周热榜</h3>
+          <ol>
+            <li>深入理解计算机系统</li>
+            <li>Vue.js 设计与实现</li>
+            <li>活着</li>
+            <li>算法导论</li>
+            <li>JavaScript 高级程序设计</li>
+          </ol>
+        </div>
+
+        <div class="side-box">
+          <h3>借阅须知</h3>
+          <p>本科生一次可借 5 本，借期 30 天；逾期每本书每天 0.1 元，可在公众号续借一次。</p>
+        </div>
+      </aside>
+
+    </div>
   </main>
 
+  <!-- 页脚 -->
   <footer class="site-footer">
-    <p>版权所有 © 2026 校园图书屋</p>
+    <p>版权所有 © 2026 校园图书屋 · Web 应用程序设计课程作业</p>
   </footer>
 
 </body>

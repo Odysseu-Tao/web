@@ -1,0 +1,232 @@
+/* ============================================================
+ * 校园图书屋 · 外部样式表
+ * 作业要求：样式全部抽到本文件，由 index.html 通过 <link> 引入
+ * ============================================================ */
+
+/* 全课惯例：写在第一行，加 padding / border 也不会撑破布局（P16） */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  color: #333;
+  background-color: #f5f1ea;          /* 温暖米色背景 */
+  line-height: 1.6;
+}
+
+/* ---------- 页头 ---------- */
+.site-header {
+  background-color: #2c3e50;         /* 深蓝灰 */
+  color: #fff;
+  text-align: center;
+  padding: 28px 16px;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 4px;
+}
+.site-header .slogan {
+  margin: 8px 0 0;
+  color: #bdc3c7;
+  font-size: 14px;
+}
+
+/* ---------- 导航 ---------- */
+.site-nav {
+  background-color: #34495e;
+  text-align: center;
+  padding: 0;
+}
+.site-nav a {
+  display: inline-block;
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 12px 28px;
+  font-size: 15px;
+}
+.site-nav a:hover {
+  background-color: #2c3e50;
+}
+.site-nav a.active {
+  background-color: #e67e22;         /* 橙色高亮当前页 */
+  color: #fff;
+}
+
+/* ---------- 容器 ---------- */
+.container {
+  width: 960px;
+  margin: 20px auto;                /* 居中 */
+}
+
+/* ---------- 检索表单区 ---------- */
+.search-area {
+  background-color: #fff;
+  border: 1px solid #e0d8c8;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.search-area form {
+  font-size: 14px;
+}
+.search-area label {
+  margin: 0 6px 0 14px;
+  color: #555;
+}
+.search-area label:first-child {
+  margin-left: 0;
+}
+.search-area input[type="text"] {
+  width: 220px;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.search-area select {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.search-area button {
+  padding: 8px 22px;
+  background-color: #e67e22;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.search-area button:hover {
+  background-color: #d35400;
+}
+
+/* ---------- 主内容 + 侧栏：float 并排 ---------- */
+.content-wrap::after {               /* 清浮动，防父容器高度塌陷（P18） */
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.book-section {
+  float: left;
+  width: 72%;
+}
+.book-section h2 {
+  font-size: 20px;
+  border-left: 4px solid #e67e22;
+  padding-left: 10px;
+  margin: 0 0 16px;
+}
+
+/* ---------- 书目卡片：float 三列并排（P18） ---------- */
+.book-list {
+  /* 卡片全部 float 后，靠 ::after clear 防塌陷 */
+}
+.book-list::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.book-card {
+  float: left;
+  width: 31.33%;                    /* 3 列留缝隙：3 列 + 2 个间距 ≈ 100% */
+  margin: 0 1% 18px;                /* 卡片之间的间距 */
+  background-color: #fff;
+  border: 1px solid #e0d8c8;
+  border-radius: 6px;
+  padding: 14px;                    /* 内容与边框的内边距 */
+  text-align: center;
+}
+.book-card h3 {
+  font-size: 15px;
+  margin: 10px 0 4px;
+  color: #2c3e50;
+}
+.book-card .author {
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 8px;
+}
+.book-card .price {
+  font-size: 16px;
+  color: #e67e22;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* 封面占位：渐变色块，不依赖外部图片 */
+.cover {
+  height: 130px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 130px;
+  letter-spacing: 2px;
+}
+.cover-1 { background: linear-gradient(135deg, #e67e22, #d35400); }
+.cover-2 { background: linear-gradient(135deg, #3498db, #2c3e50); }
+.cover-3 { background: linear-gradient(135deg, #42b883, #35495e); }
+.cover-4 { background: linear-gradient(135deg, #8e44ad, #2c3e50); }
+.cover-5 { background: linear-gradient(135deg, #c0392b, #7f8c8d); }
+.cover-6 { background: linear-gradient(135deg, #16a085, #2c3e50); }
+
+/* ---------- 侧栏 ---------- */
+.sidebar {
+  float: right;
+  width: 25%;
+}
+.side-box {
+  background-color: #fff;
+  border: 1px solid #e0d8c8;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.side-box h3 {
+  font-size: 15px;
+  margin: 0 0 10px;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+.side-box ul,
+.side-box ol {
+  padding-left: 20px;
+  margin: 0;
+  font-size: 13px;
+}
+.side-box li {
+  margin-bottom: 6px;
+}
+.side-box a {
+  color: #555;
+  text-decoration: none;
+}
+.side-box a:hover {
+  color: #e67e22;
+}
+.side-box p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* ---------- 页脚：必须清浮动，否则会顶上来串位（P18 坑） ---------- */
+.site-footer {
+  clear: both;
+  background-color: #2c3e50;
+  color: #bdc3c7;
+  text-align: center;
+  padding: 18px;
+  font-size: 13px;
+  margin-top: 20px;
+}
