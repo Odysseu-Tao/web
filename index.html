@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园图书屋 · 首页</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Microsoft YaHei", sans-serif; color: #333; background: #f5f1ea; }
+    .site-header { background: #2c3e50; color: #fff; text-align: center; padding: 28px 16px; }
+    .site-header h1 { margin: 0; font-size: 32px; letter-spacing: 4px; }
+    .site-nav { background: #34495e; text-align: center; }
+    .site-nav a { display: inline-block; color: #ecf0f1; text-decoration: none; padding: 12px 28px; }
+    .site-nav a.active { background: #e67e22; }
+    .container { width: 960px; margin: 20px auto; }
+    .search-area { background: #fff; border: 1px solid #e0d8c8; border-radius: 6px; padding: 16px 20px; }
+    .search-area input[type="text"] { padding: 7px 10px; border: 1px solid #ccc; border-radius: 4px; }
+    .search-area select { padding: 7px 10px; border: 1px solid #ccc; border-radius: 4px; }
+    .search-area button { padding: 8px 22px; background: #e67e22; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .site-footer { clear: both; background: #2c3e50; color: #bdc3c7; text-align: center; padding: 18px; font-size: 13px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1>校园图书屋</h1>
+    <p class="slogan">在书页里，遇见更大的世界</p>
+  </header>
+
+  <nav class="site-nav">
+    <a href="index.html" class="active">首页</a>
+    <a href="search.html">检索</a>
+    <a href="about.html">关于</a>
+  </nav>
+
+  <main class="container">
+    <section class="search-area">
+      <form action="/search" method="get">
+        <label for="kw">书名关键字</label>
+        <input type="text" id="kw" name="keyword" required placeholder="请输入书名 / 作者关键字">
+        <label for="type">图书分类</label>
+        <select id="type" name="type">
+          <option value="all">全部</option>
+          <option value="cs">计算机</option>
+          <option value="literature">文学</option>
+        </select>
+        <button type="submit">检索</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>版权所有 © 2026 校园图书屋</p>
+  </footer>
+
+</body>
+</html>
